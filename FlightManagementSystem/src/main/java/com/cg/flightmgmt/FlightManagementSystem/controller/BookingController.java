@@ -31,7 +31,7 @@ public class BookingController {
 	@Autowired
 	
 	private IFlightBookingService flightService;
-	@PostMapping("/flight booking/new")
+	@PostMapping("/flightbooking/new")
 
 	public Booking addBooking(@Valid @RequestBody Booking booking) {
 		return flightService.addBooking(booking);

@@ -4,13 +4,43 @@ import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
+@Entity
+@Table(name="Booking")
 public class Booking {
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
 private BigInteger bookingId;
+
+@Column(name="userId", length=25)
+@NotEmpty(message="userid is required")
 private User userId;
+
+@Column(name="bookingDate", length=25)
+@NotEmpty(message="bookingDate is required")
 private LocalDate bookingDate;
+
+@Column(name="passenger", length=25)
+@NotEmpty(message="passenger list is required")
 private List <Passenger>passengerList;
+
+@Column(name="ticketCost", length=25)
+@NotEmpty(message="ticketCost is required")
 private double ticketCost;
+
+@Column(name="flight", length=25)
+@NotEmpty(message="flight is required")
 private Flight flight;
+
+@Column(name="noofPassangers", length=5)
+@NotEmpty(message="no of passengers are required")
 private int noOfPassangers;
 
 public Booking(BigInteger bookingId, User userId, LocalDate bookingDate, List<Passenger> passengerList, double ticketCost, Flight flight, int noOfPassangers) {
