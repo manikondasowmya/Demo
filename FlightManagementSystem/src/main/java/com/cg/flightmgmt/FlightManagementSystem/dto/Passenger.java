@@ -2,7 +2,11 @@ package com.cg.flightmgmt.FlightManagementSystem.dto;
 
 import java.math.BigInteger;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
 public class Passenger {
+	@Id
 private BigInteger pnrNumber;
 private String passengerName;
 private int passengerAge;

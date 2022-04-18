@@ -22,17 +22,15 @@ public class IFlightServiceImpl implements IFlightService{
 		return flightRepository.save(flight);
 	}
 
-	@Override
-	public Flight viewFlight(BigInteger flightno) throws FlightNotFoundException {
-		// TODO Auto-generated method stub
-		Optional<Flight> findFlightById = flightRepository.findById(flightno);
-		if (findFlightById.isPresent()) {
-			flightRepository.getById(flightno);
-		}else {
-			throw new FlightNotFoundException("Flight not found");
-		}
-		return flightRepository.getById(flightno);
-	}
+	//@Override
+	/*
+	 * public Flight viewFlight(BigInteger flightno) throws FlightNotFoundException
+	 * { // TODO Auto-generated method stub Optional<Flight> findFlightById =
+	 * flightRepository.findById(flightno); if (findFlightById.isPresent()) {
+	 * flightRepository.getById(flightno); }else { throw new
+	 * FlightNotFoundException("Flight not found"); } return
+	 * flightRepository.getById(flightno); }
+	 */
 
 	@Override
 	public Set<Flight> viewAllFlights() {
@@ -41,24 +39,15 @@ public class IFlightServiceImpl implements IFlightService{
 	}
 
 
-	@Override
-	public Flight updateFlight(Flight flight) {
-		Optional<Flight> findFlightById = flightRepository.findById(flight.getFlightId());
-		if (findFlightById.isPresent()) {
-			flightRepository.save(flight);
-		}
-		// TODO Auto-generated method stub
-		return flight;
-	}
-
-	@Override
-	public Flight removeFlight(BigInteger flightno) {
-		Optional<Flight> findFlightById = flightRepository.findById(flightno);
-		if (findFlightById.isPresent()) {
-			flightRepository.deleteById(flightno);
-		} 
-		// TODO Auto-generated method stub
-		return flightRepository.getById(flightno); 
-	}
-
+	/*
+	 * @Override public Flight updateFlight(Flight flight) { Optional<Flight>
+	 * findFlightById = flightRepository.findById(flight.getFlightId()); if
+	 * (findFlightById.isPresent()) { flightRepository.save(flight); } // TODO
+	 * Auto-generated method stub return flight; }
+	 * 
+	 * @Override public Flight removeFlight(BigInteger flightno) { Optional<Flight>
+	 * findFlightById = flightRepository.findById(flightno); if
+	 * (findFlightById.isPresent()) { flightRepository.deleteById(flightno); } //
+	 * TODO Auto-generated method stub return flightRepository.getById(flightno); }
+	 */
 }

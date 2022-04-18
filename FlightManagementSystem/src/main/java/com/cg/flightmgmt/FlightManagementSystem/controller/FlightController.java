@@ -3,6 +3,8 @@ package com.cg.flightmgmt.FlightManagementSystem.controller;
 import java.math.BigInteger;
 import java.util.Set;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,16 +22,16 @@ import com.cg.flightmgmt.FlightManagementSystem.exception.FlightNotFoundExceptio
 import com.cg.flightmgmt.FlightManagementSystem.dto.Flight;
 import com.cg.flightmgmt.FlightManagementSystem.service.IFlightService;
 import com.cg.flightmgmt.FlightManagementSystem.serviceImpl.IFlightServiceImpl;
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/flight")
 public class FlightController {
-	@Autowired(required = true)
-	IFlightService flightService;
+	@Autowired
+	private IFlightService flightService;
 
 	@PostMapping("/addFlight")
-	public void addFlight(@RequestBody Flight flight) {
-		flightService.addFlight(flight);
+	public Flight addFlight(@Valid @RequestBody Flight flight) {
+		return flightService.addFlight(flight);
 	}
 
 	@GetMapping("/allFlight")
@@ -37,20 +39,23 @@ public class FlightController {
 		return flightService.viewAllFlights();
 	}
 
-	@GetMapping("/viewFlight/{id}")
-	public Flight viewFlight(@PathVariable("id") BigInteger flightNo) throws FlightNotFoundException {
-		return flightService.viewFlight(flightNo);
-	}
+	/*
+	 * @GetMapping("/viewFlight/{id}") public Flight viewFlight(@PathVariable("id")
+	 * BigInteger flightNo) throws FlightNotFoundException { return
+	 * flightService.viewFlight(flightNo); }
+	 */
 
-	@PutMapping("/updateFlight")
-	@ExceptionHandler(FlightNotFoundException.class)
-	public void modifyFlight(@RequestBody Flight flight) {
-		flightService.updateFlight(flight);
-	}
-
-	@DeleteMapping("/deleteFlight/{id}")
-	@ExceptionHandler(FlightNotFoundException.class)
-	public void removeFlight(@PathVariable("id") BigInteger flightNo) {
-		flightService.removeFlight(flightNo);
-	}
+	/*
+	 * @PutMapping("/updateFlight")
+	 * 
+	 * @ExceptionHandler(FlightNotFoundException.class) public void
+	 * modifyFlight(@RequestBody Flight flight) {
+	 * flightService.updateFlight(flight); }
+	 * 
+	 * @DeleteMapping("/deleteFlight/{id}")
+	 * 
+	 * @ExceptionHandler(FlightNotFoundException.class) public void
+	 * removeFlight(@PathVariable("id") BigInteger flightNo) {
+	 * flightService.removeFlight(flightNo); }
+	 */
 }

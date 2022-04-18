@@ -14,15 +14,12 @@ import com.cg.flightmgmt.FlightManagementSystem.exception.BookingNotFoundExcepti
 @Repository
 public interface IFlightBookingRepository extends JpaRepository<Booking, BigInteger>{
 
-	public Booking addBooking(Booking booking);
-	public Booking cancelBooking(BigInteger bookingid) throws BookingNotFoundException;
-	public Booking viewBooking(BigInteger bookingid) throws BookingNotFoundException;
-	public List<Booking> viewBookingList(Date bookingdate);
-	public List<Booking> viewBookingList(BigInteger flightid);
-	public List<Booking> viewBookingHistory(BigInteger userid);
-	public Booking updateBooking(Booking booking);
-	public Optional<Booking> findById(BigInteger bookingId);
-	public List<Booking> findByFlightId(BigInteger flightid);
-	public List<Booking> findByUserId(BigInteger userid);
-	public List<Booking> findByDate(Date bookingdate);
+	//List<Booking> findByDate(Date bookingdate);
+
+	/*
+	 * List<Booking> findByFlightId(BigInteger flightid);
+	 * 
+	 * List<Booking> findByUserId(BigInteger userid);
+	 */
+	
 }

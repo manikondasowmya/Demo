@@ -14,9 +14,12 @@ import com.cg.flightmgmt.FlightManagementSystem.exception.FlightNotFoundExceptio
 public interface IFlightRepository extends JpaRepository<Flight, BigInteger>{
 
 	public Flight addFlight(Flight flight);
-	public Flight viewFlight(BigInteger flightno) throws FlightNotFoundException;
+	//public Flight viewFlight(BigInteger flightno) throws FlightNotFoundException;
 	public Set<Flight> viewAllFlights();
-	public Flight removeFlight(BigInteger flightno);
-	public Flight updateFlight(Flight flight);
+
+	/*
+	 * public Flight removeFlight(BigInteger flightno); public Flight
+	 * updateFlight(Flight flight);
+	 */
 	public Optional<Flight> findById(BigInteger flightno);
 }

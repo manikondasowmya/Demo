@@ -18,23 +18,28 @@ public class IFlightBookingServiceImpl implements IFlightBookingService{
 	@Autowired
 	private IFlightBookingRepository flightRepository;
 
-	@Override
+	
 	public Booking addBooking(Booking booking) {
 		// TODO Auto-generated method stub
 		return flightRepository.save(booking);
 	}
 
 	@Override
-	public Booking cancelBooking(BigInteger bookingid) throws BookingNotFoundException {
-		Optional<Booking> findBookingById = flightRepository.findById(bookingid);
+	public Booking  cancelBooking(BigInteger bookingId) throws BookingNotFoundException {
+
+		Optional<Booking> findBookingById = flightRepository.findById(bookingId);
 		if (findBookingById.isPresent()) {
-			flightRepository.deleteById(bookingid);
-		}  else {
-			throw new BookingNotFoundException("Booking not found for the exception");
-		} 
-		// TODO Auto-generated method stub
-		return flightRepository.getById(bookingid); 
-	}
+			flightRepository.deleteById(bookingId);
+		}
+			else {
+				throw new BookingNotFoundException("Booking not found for the exception");
+			} 
+			// TODO Auto-generated method stub
+			return flightRepository.getById(bookingId); 
+		}
+			
+	
+	
 
 	@Override
 	public Booking viewBooking(BigInteger bookingid) throws BookingNotFoundException {
@@ -42,11 +47,11 @@ public class IFlightBookingServiceImpl implements IFlightBookingService{
 		return flightRepository.getById(bookingid);
 	}
 
-	@Override
-	public List<Booking> viewBookingList(Date bookingdate) {
-		// TODO Auto-generated method stub
-		return flightRepository.findByDate(bookingdate);
-	}
+	
+	/*
+	 * public List<Booking> viewBookingList(Date bookingdate) { // TODO
+	 * Auto-generated method stub return flightRepository.findByDate(bookingdate); }
+	 */
 
 	@Override
 	public List<Booking> viewBookingList(BigInteger flightid) {
@@ -69,10 +74,11 @@ public class IFlightBookingServiceImpl implements IFlightBookingService{
 		// TODO Auto-generated method stub
 		return booking;
 	}
+
 	@Override
-	public List<Booking> viewBookings() {
+	public List<Booking> viewBooking() {
 		// TODO Auto-generated method stub
-		 return flightRepository.findAll();
+		return flightRepository.findAll();
 	}
 	
 	}

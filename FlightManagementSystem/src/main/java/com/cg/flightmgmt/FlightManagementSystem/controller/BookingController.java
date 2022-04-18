@@ -44,16 +44,18 @@ public class BookingController {
 	}
 
 	
-	@GetMapping("/searchBooking/{id}")
-	@ExceptionHandler(BookingNotFoundException.class)
-	public Booking searchBookingByID(@PathVariable("id") BigInteger bookingid) throws BookingNotFoundException {
-		return flightService.viewBooking(bookingid);
-	}
+	/*
+	 * @GetMapping("/viewBooking/{id}")
+	 * 
+	 * @ExceptionHandler(BookingNotFoundException.class) public Booking
+	 * searchBookingByID(@PathVariable("id") BigInteger bookingid) throws
+	 * BookingNotFoundException { return flightService.viewBooking(bookingid); }
+	 */
 
 	
-	@GetMapping("/flight booking/all")
-	public List<Booking> viewBookings() {
-		return flightService.viewBookings();
+	@GetMapping("/viewAllflight booking/all")
+	public List<Booking> viewBooking() {
+		return flightService.viewBooking();
 	}
 	@DeleteMapping("/deleteBooking/{id}")
 	@ExceptionHandler(BookingNotFoundException.class)

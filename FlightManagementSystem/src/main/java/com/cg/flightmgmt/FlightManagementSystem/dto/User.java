@@ -2,15 +2,32 @@ package com.cg.flightmgmt.FlightManagementSystem.dto;
 
 import java.math.BigInteger;
 
-public class User {
-private String userType;
-private BigInteger userId;
-private String userName;
-private String userPassword;
-private String userPhone;
-private String userEmail;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public User(String userType, BigInteger userId, String userName, String userPassword, String userPhone, String userEmail) {
+@Entity
+@Table(name="user3")
+public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private BigInteger userId;
+	@Column(name="user_type", length=25)
+	private String userType;
+	
+	@Column(name="user_name", length=25)
+	private String userName;
+	@Column(name="user_password", length=25)
+	private String userPassword;
+	@Column(name="user_phone", length=25)
+	private String userPhone;
+	@Column(name="user_email", length=25)
+	private String userEmail;
+
+public User( BigInteger userId,String userType, String userName, String userPassword, String userPhone, String userEmail) {
 	this.userType = userType;
 	this.userId = userId;
 	this.userName = userName;

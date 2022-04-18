@@ -5,18 +5,25 @@ import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.cg.flightmgmt.FlightManagementSystem.dto.Booking;
 import com.cg.flightmgmt.FlightManagementSystem.exception.BookingNotFoundException;
 
 public interface IFlightBookingService {
 
-	public Booking addBooking(Booking booking);
-	public Booking cancelBooking(BigInteger bookingid) throws BookingNotFoundException;
-	public Booking viewBooking(BigInteger bookingid) throws BookingNotFoundException;
-	public List<Booking> viewBookingList(Date bookingdate);
-	public List<Booking> viewBookingList(BigInteger flightid);
-	public List<Booking> viewBookingHistory(BigInteger userid);
-	public Booking updateBooking(Booking booking);
-	public List<Booking> viewBookings();
+	
+	
+	
+	Booking cancelBooking(BigInteger bookingId) throws BookingNotFoundException;
+	public Booking addBooking(@Valid Booking booking);
+	Booking viewBooking(BigInteger bookingid) throws BookingNotFoundException;
+	//List<Booking> viewBookingList(Date bookingdate);
+	/*
+	 * List<Booking> viewBookingList(BigInteger flightid); List<Booking>
+	 * viewBookingHistory(BigInteger userid);
+	 */
+	Booking updateBooking(Booking booking);
+	List<Booking> viewBooking();
 	
 }
